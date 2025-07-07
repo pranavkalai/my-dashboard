@@ -1,7 +1,7 @@
 # 🧵 Business Dashboard (Full-Stack Project)
 
-This is a full-stack web application built to help manage and visualize data for a family-run business. 
-The project is also a personal learning journey in **React**, **Node.js**, **Express**, and **PostgreSQL**, with the goal of eventually deploying it on **AWS**.
+This is a full-stack web application I'm building to help manage and visualize data for a family-run business. 
+This project is also meant to help me learn how to use **React**, **Node.js**, **Express**, and **PostgreSQL**, with the goal of eventually deploying it on **AWS**.
 
 ---
 
