@@ -6,7 +6,11 @@
 }
 
 .test {
-    /* /* text-align: center; */
+    margin-top: 70px;
+    margin-left: 70px;
+}
+
+.copy {
     margin-top: 50px;
     margin-left: 70px;
 }

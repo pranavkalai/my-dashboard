@@ -1,9 +1,9 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
 
-const CustomCard = ({ brand, year }) => {
+const CustomCard = ({ brand, year, className}) => {
   return (
-    <Card style={{ width: '18rem' }} className='test'>
+    <Card style={{ width: '18rem' }} className={className}>
       <Card.Body>
         <Card.Title>Utilities Report</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">January 2025</Card.Subtitle>

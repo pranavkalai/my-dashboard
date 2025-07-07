@@ -4,6 +4,7 @@ import { Outlet } from 'react-router-dom'
 import CustomNavbar from './components/navbar/Navbar'
 import LeftPillar from './components/left-pillar/LeftPillar'
 import RightPillar from './components/right-pillar/RightPillar'
+import BottomBar from './components/bottom-bar/BottomBar'
 
 const App = () => {
     return (
@@ -14,6 +15,7 @@ const App = () => {
       <main>
         <Outlet />
       </main>
+      <BottomBar />
     </div>
   )
 }

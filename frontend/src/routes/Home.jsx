@@ -17,7 +17,8 @@ const Home = () => {
   return (
     <div>
       <h1 className="home">Console Home</h1>
-      <CustomCard brand={message.brand} year={message.year}/>
+      <CustomCard brand={message.brand} year={message.year} className='test'/>
+      <CustomCard brand={message.brand} year={message.year} className='copy'/>
     </div>
   )
 }
