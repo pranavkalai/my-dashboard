@@ -1,0 +1,9 @@
+.navbar.bg-body-tertiary {
+  background-color: rgb(41, 41, 61) !important; /* Black navbar */
+}
+
+.navbar.bg-body-tertiary .navbar-brand,
+.navbar.bg-body-tertiary .nav-link,
+.navbar.bg-body-tertiary .dropdown-toggle {
+  color: #fff
+}

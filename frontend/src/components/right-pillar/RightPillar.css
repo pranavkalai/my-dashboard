@@ -1,0 +1,9 @@
+.right-pillar {
+    border: 2px solid lightgray;
+    height: 100vh;
+    width: 40px;
+    background:  lightgray;
+    margin-left:auto;
+    position: fixed;
+    right: 0;
+}

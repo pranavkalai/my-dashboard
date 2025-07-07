@@ -1,0 +1,16 @@
+/* * {
+    background-color: lightgray;
+} */
+
+.home {
+    color: #333;
+    margin-top: 20px;
+    margin-left: 70px;
+    font-size: 2rem;
+}
+
+.test {
+    /* /* text-align: center; */
+    margin-top: 30px;
+    margin-left: 70px;
+}
