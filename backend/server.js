@@ -7,7 +7,7 @@ dotenv.config();
 const app = express();
 
 const corsOptions = {
-    orgin: ['http://localhost:5173'] // frontend port
+    origin: ['http://localhost:5173'] // frontend port
 }
 
 const pool = new Pool({ //connction config
@@ -23,7 +23,7 @@ app.use(cors(corsOptions));
 const result = await pool.query('SELECT * FROM cars');
 const x = result.rows[0]; 
 
-app.get('/', (req, res) => {
+app.get('/home', (req, res) => {
     res.json(x);
 })
 
