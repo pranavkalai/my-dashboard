@@ -5,12 +5,12 @@
     font-size: 2rem;
 }
 
-.test {
-    margin-top: 70px;
-    margin-left: 70px;
-}
-
-.copy {
-    margin-top: 50px;
-    margin-left: 70px;
+.dashboard {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 100%;
+    /* background-color: aquamarine; */
+    margin: 70px; 
+    gap: 50px; /* Adjust the gap between cards */
 }

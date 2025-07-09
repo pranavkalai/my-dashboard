@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 function CustomNavbar() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
-      <Container>
+      <Container fluid style={{ paddingLeft: '70px' }}>
         <Navbar.Brand>SKG SPINTEX</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

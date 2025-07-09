@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import CustomCard from '../components/card/Card'
+import CustomCard from '../components/cards/Card'
+import NotifCard from '../components/cards/NotifCard'
 
 const Home = () => {
   const [message, setMessage] = useState('');
@@ -17,8 +18,11 @@ const Home = () => {
   return (
     <div>
       <h1 className="home">Console Home</h1>
-      <CustomCard brand={message.brand} year={message.year} className='test'/>
-      <CustomCard brand={message.brand} year={message.year} className='copy'/>
+      <div className='dashboard'>
+        <NotifCard/>
+        <CustomCard brand={message.brand} year={message.year}/>
+        <CustomCard brand={message.brand} year={message.year}/>
+      </div>
     </div>
   )
 }
