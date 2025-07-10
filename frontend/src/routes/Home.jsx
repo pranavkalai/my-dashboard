@@ -35,6 +35,7 @@ const Home = () => {
           <div className='row'>
             <CustomCard brand={message.brand} year={message.year}/>
             <CustomCard brand={message.brand} year={message.year}/>
+            <CustomCard brand={message.brand} year={message.year}/>
           </div>
       </div>
     </div>
