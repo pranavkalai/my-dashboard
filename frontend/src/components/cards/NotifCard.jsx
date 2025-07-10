@@ -4,7 +4,7 @@ import ListGroup from 'react-bootstrap/ListGroup'
 
 const NotifCard = ({className}) => {
   return (
-    <Card style={{ width: '18rem', height: '20rem' }} className={className}>
+    <Card style={{ width: '18rem' }} className={className}>
       <Card.Header>Notifications</Card.Header>
       <ListGroup variant="flush">
         <ListGroup.Item>Cras justo odio</ListGroup.Item>

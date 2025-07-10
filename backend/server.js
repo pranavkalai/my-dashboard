@@ -5,6 +5,8 @@ import dotenv from 'dotenv'
 
 dotenv.config(); 
 const app = express();
+const date = new Date();
+const dateInWords = date.toDateString();
 
 const corsOptions = {
     origin: ['http://localhost:5173'] // frontend port
@@ -20,11 +22,16 @@ const pool = new Pool({ //connction config
 
 app.use(cors(corsOptions));
 
-const result = await pool.query('SELECT * FROM cars');
-const x = result.rows[0]; 
+// const result = await pool.query('SELECT * FROM cars');
+// const x = result.rows[0];
+
+const response = {
+    date: dateInWords,
+    // message: x
+}
 
 app.get('/home', (req, res) => {
-    res.json(x);
+    res.json(response);
 })
 
 app.listen(8080, () => {
