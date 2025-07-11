@@ -30,6 +30,14 @@ const response = {
     // message: x
 }
 
+const vehicle_data = await pool.query('SELECT * FROM vehicle_records');
+console.log(vehicle_data.rows);
+
+app.get('/home/vehicles', (req, res) => {
+    res.json(vehicle_data.rows[0]);
+})
+
+
 app.get('/home', (req, res) => {
     res.json(response);
 })

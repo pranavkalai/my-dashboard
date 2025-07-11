@@ -1,18 +1,19 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
+import { Link } from 'react-router-dom'
 
-const CustomCard = ({ brand, year, className}) => {
+const CustomCard = ({ brand, year, className, link, name, subName, param1, param2}) => {
   return (
     <Card style={{ width: '18rem' }} className={className}>
       <Card.Body>
-        <Card.Title>Utilities Report</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">January 2025</Card.Subtitle>
+        <Card.Title>{name}</Card.Title>
+        <Card.Subtitle className="mb-2 text-muted">{subName}</Card.Subtitle>
         <Card.Text>
-          Electricity: { brand }<br />
-          Water: { year }
+          {param1}: { brand }<br />
+          {param2}: { year }
         </Card.Text>
-        <Card.Link href="#">View</Card.Link>
-        <Card.Link href="#">Download Metrics</Card.Link>
+        <Card.Link as={Link} to={link}>View</Card.Link>
+        {/* <Card.Link href="#">Download Metrics</Card.Link> */}
       </Card.Body>
     </Card>
   )

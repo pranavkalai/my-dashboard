@@ -5,7 +5,7 @@ import NotifCard from '../components/cards/NotifCard'
 import TimeCard from '../components/cards/TimeCard'
 
 const Home = () => {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState({});
   useEffect(() => {
     axios.get('http://localhost:8080/home')
       .then((res) => {
@@ -25,17 +25,17 @@ const Home = () => {
         <div className='spintex'>
           <h2>SPINTEX</h2>
           <div className='row'>
-            <CustomCard brand={message.brand} year={message.year}/>
-            <CustomCard brand={message.brand} year={message.year}/>
+            <CustomCard name='Blank Card' brand={message.brand} year={message.year}/>
+            <CustomCard name='Blank Card' brand={message.brand} year={message.year}/>
           </div>
         </div>
       </div>
       <div className='bus'>  
-          <h2 style={{}}>JKBS</h2>
+          <h2>TRANSPORT</h2>
           <div className='row'>
-            <CustomCard brand={message.brand} year={message.year}/>
-            <CustomCard brand={message.brand} year={message.year}/>
-            <CustomCard brand={message.brand} year={message.year}/>
+            <CustomCard name='Vehicle Records' subName='JKBS, COVAI' brand={message.brand} year={message.year} link='/home/vehicles'/>
+            <CustomCard param1 = 'For' param2='Net Revenue' name='Collection Sheet' subName='JKBS' brand={message.brand} year={message.year}/>
+            <CustomCard name='Blank Card' brand={message.brand} year={message.year}/>
           </div>
       </div>
     </div>

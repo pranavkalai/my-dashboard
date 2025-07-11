@@ -5,6 +5,7 @@ import './index.css'
 import App from './App.jsx'
 import Home from './routes/Home.jsx'
 import Account from './routes/Account.jsx'
+import Vehicles from './routes/Vehicles.jsx'
 
 const router = createBrowserRouter([
   { 
@@ -13,7 +14,8 @@ const router = createBrowserRouter([
     children: [
       { path: '', element: <Navigate to="/home" /> },  // redirect '/' to '/home'
       { path: 'home', element: <Home /> },
-      { path: 'account', element: <Account /> }
+      { path: 'account', element: <Account /> },
+      { path: 'home/vehicles', element: <Vehicles /> }
     ]
   }
 ]);
