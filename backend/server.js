@@ -7,12 +7,12 @@ dotenv.config();
 const app = express();
 const date = new Date();
 const dateInWords = date.toDateString();
-
 const corsOptions = {
     origin: ['http://localhost:5173'] // frontend port
 }
+app.use(cors(corsOptions));
 
-const pool = new Pool({ //connction config
+const pool = new Pool({
    user: process.env.DB_USER,
     host: process.env.DB_HOST,
     database: process.env.DB_DATABASE,
@@ -20,28 +20,18 @@ const pool = new Pool({ //connction config
     port: process.env.DB_PORT
 });
 
-app.use(cors(corsOptions));
-
-// const result = await pool.query('SELECT * FROM cars');
-// const x = result.rows[0];
-
-const response = {
+const home_response = {
     date: dateInWords,
-    // message: x
 }
-
-const vehicle_data = await pool.query('SELECT * FROM vehicle_records');
-console.log(vehicle_data.rows);
-
-app.get('/home/vehicles', (req, res) => {
-    res.json(vehicle_data.rows[0]);
-})
-
+const vehicle_response = await pool.query('SELECT * FROM vehicle_records');
+console.log(vehicle_response.rows);
 
 app.get('/home', (req, res) => {
-    res.json(response);
+    res.json(home_response);
 })
-
+app.get('/home/vehicles', (req, res) => {
+    res.json(vehicle_response.rows);
+})
 app.listen(8080, () => {
   console.log('Server is running on port 8080');
 })
