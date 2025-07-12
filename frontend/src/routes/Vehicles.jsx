@@ -6,16 +6,27 @@ import './Vehicles.css'
 
 
 const Vehicles = () => {
-  const [message, setMessage] = useState([]);
+  const [data, setData] = useState([]);
   useEffect(() => {
     axios.get('http://localhost:8080/home/vehicles')
       .then((res) => {
-        setMessage(res.data);
+        setData(res.data);
       })
       .catch((err) => {
         console.error('Error fetching data:', err);
       })
   }, []);
+
+  const formatedData = data.map((vehicle_info, index) => (
+      <tr key={vehicle_info.registration}>
+        <td>{index + 1}</td>
+        <td>{vehicle_info.name}</td>
+        <td>{vehicle_info.registration}</td>
+        <td>Blank</td>
+        <td>Blank</td>
+      </tr>
+    )
+  );
 
   return (
     <div>
@@ -32,24 +43,7 @@ const Vehicles = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>{message.name}</td>
-            <td>{message.registration}</td>
-            <td>@mdo</td>
-            <td>2023-10-01</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td colSpan={2}>Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
+          {formatedData}
         </tbody>
       </Table>
       </div>
