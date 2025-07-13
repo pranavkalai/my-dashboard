@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import './Home.css'
 import CustomCard from '../components/cards/Card'
 import NotifCard from '../components/cards/NotifCard'
 import TimeCard from '../components/cards/TimeCard'
@@ -33,7 +34,7 @@ const Home = () => {
       <div className='bus'>  
           <h2>TRANSPORT</h2>
           <div className='row'>
-            <CustomCard name='Vehicle Records' subName='JKBS, COVAI' link='/home/vehicles'/>
+            <CustomCard name='Vehicle Record' subName='JKBS, COVAI' link='/home/vehicles'/>
             <CustomCard name='Collection Sheet' subName='JKBS'/>
             <CustomCard name='Blank Card'/>
           </div>

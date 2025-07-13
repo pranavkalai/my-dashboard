@@ -5,8 +5,6 @@ import dotenv from 'dotenv'
 
 dotenv.config(); 
 const app = express();
-const date = new Date();
-const dateInWords = date.toDateString();
 const corsOptions = {
     origin: ['http://localhost:5173'] // frontend port
 }
@@ -20,16 +18,16 @@ const pool = new Pool({
     port: process.env.DB_PORT
 });
 
-const home_response = {
-    date: dateInWords,
-}
-const vehicle_response = await pool.query('SELECT * FROM vehicle_records');
-console.log(vehicle_response.rows);
-
 app.get('/home', (req, res) => {
+    const date = new Date();
+    const dateInWords = date.toDateString();
+    const home_response = {
+        date: dateInWords
+    }
     res.json(home_response);
 })
-app.get('/home/vehicles', (req, res) => {
+app.get('/home/vehicles', async (req, res) => {
+    const vehicle_response = await pool.query('SELECT * FROM vehicle_records');
     res.json(vehicle_response.rows);
 })
 app.listen(8080, () => {

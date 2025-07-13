@@ -1,4 +1,15 @@
+.vehicle-record {
+    display: flex;
+    flex-direction: row;;
+}
 .vehicles {
-    margin: 40px auto 0 auto;
+    margin: 40px 0 0 70px;
     width: 50%;
 }
+.custom-form {
+    /* background-color: aquamarine; */
+    padding:0;
+    width:50%;
+    margin: 40px 70px 0 50px;;
+}
+

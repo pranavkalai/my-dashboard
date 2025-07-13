@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Table from 'react-bootstrap/Table'
 import axios from 'axios'
-import { useEffect, useState } from 'react'
 import './Vehicles.css'
+import Tab from '../components/tab/Tab'
 
 
 const Vehicles = () => {
@@ -30,22 +30,27 @@ const Vehicles = () => {
 
   return (
     <div>
-    <h1 className="home">Vehicles</h1>
-      <div className='vehicles'>
-        <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Registration</th>
-            <th>Last Service Date</th>
-            <th>Next Service Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          {formatedData}
-        </tbody>
-      </Table>
+      <h1 className="home">Vehicle Record</h1>
+      <div className='vehicle-record'>
+        <div className='vehicles'>
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Registration</th>
+                <th>Last Service Date</th>
+                <th>Next Service Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {formatedData}
+            </tbody>
+          </Table>
+        </div>
+        <div className="custom-form">
+          <Tab className='row'/>
+        </div> 
       </div>
     </div>
   )
