@@ -36,7 +36,7 @@ const Home = () => {
           <div className='row'>
             <CustomCard name='Vehicle Record' subName='JKBS, COVAI' link='/home/vehicles'/>
             <CustomCard name='Collection Sheet' subName='JKBS'/>
-            <CustomCard name='Blank Card'/>
+            {/* <CustomCard name='Blank Card'/> */}
           </div>
       </div>
     </div>

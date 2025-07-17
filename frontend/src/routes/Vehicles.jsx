@@ -25,7 +25,7 @@ const Vehicles = () => {
         <td>{vehicle_info.registration}</td>
         <td>Blank</td>
         <td>Blank</td>
-        <td><Link to={`/home/vehicles/view/id=${index}`}>View</Link></td> 
+        <td><Link to={`/home/vehicles/${index}`}>View</Link></td> 
       </tr>
     )
   );
@@ -51,9 +51,9 @@ const Vehicles = () => {
             </tbody>
           </Table>
         </div>
-        <div className="custom-form">
+        {/* <div className="custom-form">
           <Tab className='row'/>
-        </div> 
+        </div>  */}
       </div>
     </div>
   )

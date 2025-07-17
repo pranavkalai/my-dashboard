@@ -31,15 +31,26 @@ app.get('/home/vehicles', async (req, res) => {
     const vehicle_response = await pool.query('SELECT * FROM vehicle_records');
     res.json(vehicle_response.rows);
 })
-app.post('/home/vehicles/Add', async (req, res) => {
-    const { vehicleName, registration } = req.body;
-    await pool.query(
-        'INSERT INTO vehicle_records (name, registration) VALUES ($1, $2)',
-        [vehicleName, registration]
-    )
-    console.log(vehicleName, registration);
-    res.status(200).send('Received vehicle data');
+app.get('/home/vehicles/:id', async (req, res) => {
+    const vehicleId = req.params.id;
+    const vehicle_response = await pool.query(
+        'SELECT * FROM vehicle_records OFFSET $1 LIMIT 1;',
+        [vehicleId]
+    );
+    res.json(vehicle_response.rows[0]);
 })
+// app.post('/home/vehicles/Add', async (req, res) => {
+//     const { vehicleName, registration } = req.body;
+//     await pool.query(
+//         'INSERT INTO vehicle_records (name, registration) VALUES ($1, $2)',
+//         [vehicleName, registration]
+//     )
+//     console.log(vehicleName, registration);
+//     res.status(200).send('Received vehicle data');
+// })
+
+// update server logic here
+
 app.listen(8080, () => {
     console.log('Server is running on port 8080');
 })
