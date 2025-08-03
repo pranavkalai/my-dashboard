@@ -5,13 +5,12 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import './Update.css';
 
-
 const Update = () => {
   const { id, attribute } = useParams();
   const [updatedAttribute, setUpdatedAttribute] = useState('');
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post(`http://localhost:8080/home/vehicles/${id}/update/${attribute}`, { updatedAttribute });
+    await axios.patch(`http://localhost:8080/home/vehicles/${id}/update/${attribute}`, { updatedAttribute });
   }
 
   return (

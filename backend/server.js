@@ -39,16 +39,15 @@ app.get('/home/vehicles/:id', async (req, res) => {
     );
     res.json(vehicle_response.rows[0]);
 })
-app.post('/home/vehicles/add', async (req, res) => {
+app.post('/home/vehicles', async (req, res) => {
     const { name, registration } = req.body;
     await pool.query(
         'INSERT INTO vehicle_records (name, registration) VALUES ($1, $2)',
         [name, registration]
     )
-    // console.log(`Vehicle added: Name - ${name}, Registration - ${registration}`);
     res.status(200).send('Received vehicle data');
 })
-app.post('/home/vehicles/:id/update/:attribute', async (req, res) => {
+app.patch('/home/vehicles/:id/update/:attribute', async (req, res) => {
     const vehicleId = req.params.id;
     const attribute = req.params.attribute;
     const { updatedAttribute } = req.body;
@@ -56,9 +55,10 @@ app.post('/home/vehicles/:id/update/:attribute', async (req, res) => {
         `UPDATE vehicle_records SET ${attribute} = $1 WHERE id = $2`,
         [updatedAttribute, vehicleId]
     )
+    console.log(`Updated vehicle ${vehicleId} attribute ${attribute} to ${updatedAttribute}`);
     res.status(200).send('Received vehicle data');
 })
-app.delete('/home/vehicles/:id/delete', async (req, res) => {
+app.delete('/home/vehicles/:id', async (req, res) => {
     const vehicleId = req.params.id;
     await pool.query(
         'DELETE FROM vehicle_records WHERE id = $1',

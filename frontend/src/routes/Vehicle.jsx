@@ -17,7 +17,7 @@ const Vehicle = () => {
   }, [id]);
 
   const handleDelete = async () => {
-    await axios.delete(`http://localhost:8080/home/vehicles/${id}/delete`)
+    await axios.delete(`http://localhost:8080/home/vehicles/${id}`)
   }
 
   return (
