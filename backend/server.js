@@ -34,22 +34,39 @@ app.get('/home/vehicles', async (req, res) => {
 app.get('/home/vehicles/:id', async (req, res) => {
     const vehicleId = req.params.id;
     const vehicle_response = await pool.query(
-        'SELECT * FROM vehicle_records OFFSET $1 LIMIT 1;',
+        'SELECT * FROM vehicle_records WHERE id = $1;',
         [vehicleId]
     );
     res.json(vehicle_response.rows[0]);
 })
-// app.post('/home/vehicles/Add', async (req, res) => {
-//     const { vehicleName, registration } = req.body;
-//     await pool.query(
-//         'INSERT INTO vehicle_records (name, registration) VALUES ($1, $2)',
-//         [vehicleName, registration]
-//     )
-//     console.log(vehicleName, registration);
-//     res.status(200).send('Received vehicle data');
-// })
-
-// update server logic here
+app.post('/home/vehicles/add', async (req, res) => {
+    const { name, registration } = req.body;
+    await pool.query(
+        'INSERT INTO vehicle_records (name, registration) VALUES ($1, $2)',
+        [name, registration]
+    )
+    // console.log(`Vehicle added: Name - ${name}, Registration - ${registration}`);
+    res.status(200).send('Received vehicle data');
+})
+app.post('/home/vehicles/:id/update/:attribute', async (req, res) => {
+    const vehicleId = req.params.id;
+    const attribute = req.params.attribute;
+    const { updatedAttribute } = req.body;
+    await pool.query(
+        `UPDATE vehicle_records SET ${attribute} = $1 WHERE id = $2`,
+        [updatedAttribute, vehicleId]
+    )
+    res.status(200).send('Received vehicle data');
+})
+app.delete('/home/vehicles/:id/delete', async (req, res) => {
+    const vehicleId = req.params.id;
+    await pool.query(
+        'DELETE FROM vehicle_records WHERE id = $1',
+        [vehicleId]
+    );
+    console.log(`Vehicle with ID ${vehicleId} deleted`);
+    res.status(200).send('Vehicle deleted successfully');
+})
 
 app.listen(8080, () => {
     console.log('Server is running on port 8080');

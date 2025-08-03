@@ -6,6 +6,7 @@ import Home from './routes/Home.jsx'
 import Vehicles from './routes/Vehicles.jsx'
 import Vehicle from './routes/Vehicle.jsx'
 import Update from './routes/Update.jsx'
+import Add from './routes/Add.jsx'
 
 const router = createBrowserRouter([
   { 
@@ -15,8 +16,9 @@ const router = createBrowserRouter([
       { path: '', element: <Navigate to="/home" /> },  // redirect '/' to '/home'
       { path: 'home', element: <Home /> },
       { path: 'home/vehicles', element: <Vehicles /> },
+      { path: 'home/vehicles/add', element: <Add /> },
       { path: 'home/vehicles/:id', element: <Vehicle /> },
-      { path: 'home/vehicles/:id/update/:element', element: <Update /> }
+      { path: 'home/vehicles/:id/update/:attribute', element: <Update /> }
     ]
   }
 ]);

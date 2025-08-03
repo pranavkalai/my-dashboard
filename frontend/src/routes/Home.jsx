@@ -21,7 +21,7 @@ const Home = () => {
     <div>
       <h1 className="home">Console Home</h1>
       <TimeCard className='time-card' date={data.date}/>
-      <div className='dashboard'>
+      {/* <div className='dashboard'>
         <NotifCard/>
         <div className='spintex'>
           <h2>SPINTEX</h2>
@@ -30,13 +30,12 @@ const Home = () => {
             <CustomCard name='Blank Card'/>
           </div>
         </div>
-      </div>
+      </div> */}
       <div className='bus'>  
-          <h2>TRANSPORT</h2>
+          {/* <h2>TRANSPORT</h2> */}
           <div className='row'>
-            <CustomCard name='Vehicle Record' subName='JKBS, COVAI' link='/home/vehicles'/>
-            <CustomCard name='Collection Sheet' subName='JKBS'/>
-            {/* <CustomCard name='Blank Card'/> */}
+            <CustomCard name='Vehicle Record' subName='JKBS' link='/home/vehicles'/>
+            {/* <CustomCard name='Collection Sheet' subName='JKBS'/> */}
           </div>
       </div>
     </div>

@@ -16,6 +16,10 @@ const Vehicle = () => {
       })
   }, [id]);
 
+  const handleDelete = async () => {
+    await axios.delete(`http://localhost:8080/home/vehicles/${id}/delete`)
+  }
+
   return (
     <div className = 'test' >
       <div className = 'test1'>
@@ -25,6 +29,9 @@ const Vehicle = () => {
       <div className='test1'>
         <p>{vehicle.registration}</p>
         <Link to={`/home/vehicles/${id}/update/registration`}>Edit</Link>
+      </div>
+      <div className='test1'>
+        <span style={{ color: 'red', cursor: 'pointer' }} onClick={handleDelete}>Delete</span>
       </div>
     </div>
   )
