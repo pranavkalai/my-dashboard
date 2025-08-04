@@ -9,7 +9,7 @@ import './Vehicles.css';
 const Vehicles = () => {
   const [data, setData] = useState([]); // data from backend when page loads
   useEffect(() => {
-    axios.get('http://localhost:8080/home/vehicles')
+    axios.get('http://localhost:8080/api/vehicles')
       .then((res) => {
         setData(res.data);
       })

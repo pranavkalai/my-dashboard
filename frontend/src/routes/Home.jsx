@@ -8,7 +8,7 @@ import TimeCard from '../components/cards/TimeCard'
 const Home = () => {
   const [data, setData] = useState({});
   useEffect(() => {
-    axios.get('http://localhost:8080/home')
+    axios.get('http://localhost:8080/api')
       .then((res) => {
         setData(res.data);
       })
@@ -34,8 +34,8 @@ const Home = () => {
       <div className='bus'>  
           {/* <h2>TRANSPORT</h2> */}
           <div className='row'>
-            <CustomCard name='Vehicle Record' subName='JKBS' link='/home/vehicles'/>
-            {/* <CustomCard name='Collection Sheet' subName='JKBS'/> */}
+            <CustomCard name='Vehicle Record' subName='Jai Krishna Bus Service' link='/home/vehicles'/>
+            <CustomCard name='Employee Record' subName='Jai Krishna Bus Service' link='/home/employees'/>
           </div>
       </div>
     </div>

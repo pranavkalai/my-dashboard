@@ -7,7 +7,7 @@ const Vehicle = () => {
   const { id } = useParams();
   const [vehicle, setVehicle] = useState('');
   useEffect(() => {
-    axios.get(`http://localhost:8080/home/vehicles/${id}`)
+    axios.get(`http://localhost:8080/api/vehicles/${id}`)
       .then((res) => {
         setVehicle(res.data);
       })
@@ -17,7 +17,7 @@ const Vehicle = () => {
   }, [id]);
 
   const handleDelete = async () => {
-    await axios.delete(`http://localhost:8080/home/vehicles/${id}`)
+    await axios.delete(`http://localhost:8080/api/vehicles/${id}`)
   }
 
   return (
@@ -32,6 +32,9 @@ const Vehicle = () => {
       </div>
       <div className='test1'>
         <span style={{ color: 'red', cursor: 'pointer' }} onClick={handleDelete}>Delete</span>
+      </div>
+      <div className='back-link'>
+        <Link to={'/home/vehicles'}>Back to Vehicles</Link>
       </div>
     </div>
   )

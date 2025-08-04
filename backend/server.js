@@ -19,7 +19,7 @@ const pool = new Pool({
     port: process.env.DB_PORT
 });
 
-app.get('/home', (req, res) => {
+app.get('/api', (req, res) => {
     const date = new Date();
     const dateInWords = date.toDateString();
     const home_response = {
@@ -27,11 +27,11 @@ app.get('/home', (req, res) => {
     }
     res.json(home_response);
 })
-app.get('/home/vehicles', async (req, res) => {
+app.get('/api/vehicles', async (req, res) => {
     const vehicle_response = await pool.query('SELECT * FROM vehicle_records');
     res.json(vehicle_response.rows);
 })
-app.get('/home/vehicles/:id', async (req, res) => {
+app.get('/api/vehicles/:id', async (req, res) => {
     const vehicleId = req.params.id;
     const vehicle_response = await pool.query(
         'SELECT * FROM vehicle_records WHERE id = $1;',
@@ -39,26 +39,25 @@ app.get('/home/vehicles/:id', async (req, res) => {
     );
     res.json(vehicle_response.rows[0]);
 })
-app.post('/home/vehicles', async (req, res) => {
+app.post('/api/vehicles', async (req, res) => {
     const { name, registration } = req.body;
     await pool.query(
         'INSERT INTO vehicle_records (name, registration) VALUES ($1, $2)',
         [name, registration]
-    )
+    );
     res.status(200).send('Received vehicle data');
 })
-app.patch('/home/vehicles/:id/update/:attribute', async (req, res) => {
+app.patch('/api/vehicles/:id', async (req, res) => {
     const vehicleId = req.params.id;
-    const attribute = req.params.attribute;
-    const { updatedAttribute } = req.body;
+    const { attribute, updatedAttribute } = req.body;
     await pool.query(
         `UPDATE vehicle_records SET ${attribute} = $1 WHERE id = $2`,
         [updatedAttribute, vehicleId]
-    )
+    );
     console.log(`Updated vehicle ${vehicleId} attribute ${attribute} to ${updatedAttribute}`);
     res.status(200).send('Received vehicle data');
 })
-app.delete('/home/vehicles/:id', async (req, res) => {
+app.delete('/api/vehicles/:id', async (req, res) => {
     const vehicleId = req.params.id;
     await pool.query(
         'DELETE FROM vehicle_records WHERE id = $1',
