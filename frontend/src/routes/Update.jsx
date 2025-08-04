@@ -17,15 +17,15 @@ const Update = () => {
     <div className='update'>
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control placeholder="Enter email" onChange={ (e) => {setUpdatedAttribute(e.target.value)} }/>
+            <Form.Label>Vehicle {attribute}</Form.Label>
+            <Form.Control placeholder={`Update vehicle ${attribute}`} onChange={ (e) => {setUpdatedAttribute(e.target.value)} }/>
             <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
+              Placeholder text
             </Form.Text>
           </Form.Group>
           
           <Button variant="primary" type="submit">
-            Submit
+            Update
           </Button>
         </Form>
     </div>

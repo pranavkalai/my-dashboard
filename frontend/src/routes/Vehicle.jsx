@@ -24,11 +24,11 @@ const Vehicle = () => {
     <div className = 'test' >
       <div className = 'test1'>
         <p>{vehicle.name}</p>
-        <Link to={`/home/vehicles/${id}/update/name`}>Edit</Link>
+        <Link to={`/home/vehicles/${id}/update/name`}>Update</Link>
       </div>
       <div className='test1'>
         <p>{vehicle.registration}</p>
-        <Link to={`/home/vehicles/${id}/update/registration`}>Edit</Link>
+        <Link to={`/home/vehicles/${id}/update/registration`}>Update</Link>
       </div>
       <div className='test1'>
         <span style={{ color: 'red', cursor: 'pointer' }} onClick={handleDelete}>Delete</span>
