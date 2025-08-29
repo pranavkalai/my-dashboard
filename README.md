@@ -33,7 +33,7 @@ cd my-dashboard
 ### 2. Backend Setup
 1. Naviagte to the banckend directory:
 ```bash
-cd backend
+cd ./backend/
 ```
 2. Install Dependencies:
 ```bash
@@ -53,7 +53,7 @@ node server.js
 
 1. Navigate to the frontend directory:
 ```bash
-cd ../frontend
+cd ./frontend/
 ```
 2. Install dependencies:
 ```bash
