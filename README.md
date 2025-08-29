@@ -1,21 +1,39 @@
-# Business Dashboard (Full-Stack Project)
+# My Dashboard
 
-This is a full-stack web application I'm building to help manage and visualize data for a family-run business. 
-This project is also meant to help me learn how to use **React**, **Node.js**, **Express**, and **PostgreSQL**, with the goal of eventually deploying it on **AWS**.
+A full-stack web application for managing and visualizing data for a small business. This project is built using **React**, **Node.js**, **Express**, and **PostgreSQL**, with plans for deployment on **AWS**. It is designed to be easy to set up locally and extendable for further features.
 
 ---
 
 ## Tech Stack
 
-### Frontend
-- **React** (Vite)
-- **React Router DOM** for routing
-- **Axios** for HTTP requests
-- **React-Bootstrap** for UI components
-- **Custom CSS**
+**Frontend:**  
+- React (Vite)  
+- React Router DOM for client-side routing  
+- Axios for API requests  
+- React-Bootstrap and custom CSS for UI components  
 
-### Backend
-- **Node.js**
-- **Express.js** for server and API routing
-- **PostgreSQL** for the database
-- **pg** Node library for database access
+**Backend:**  
+- Node.js  
+- Express.js for API routes and server  
+- PostgreSQL database  
+- `pg` Node library for database access  
+
+---
+
+## Project Structure
+my-dashboard/
+├─ backend/ # Express server, API routes, and database configuration
+├─ frontend/ # React application (components, pages, routing, styles)
+└─ README.md # Project documentation
+
+---
+
+## Getting Started
+
+Follow these steps to run the project locally.
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/pranavkalai/my-dashboard.git
+cd my-dashboard
