@@ -21,21 +21,10 @@ const Home = () => {
     <div>
       <h1 className="home">Console Home</h1>
       <TimeCard className='time-card' date={data.date}/>
-      {/* <div className='dashboard'>
-        <NotifCard/>
-        <div className='spintex'>
-          <h2>SPINTEX</h2>
-          <div className='row'>
-            <CustomCard name='Blank Card'/>
-            <CustomCard name='Blank Card'/>
-          </div>
-        </div>
-      </div> */}
       <div className='bus'>  
-          {/* <h2>TRANSPORT</h2> */}
           <div className='row'>
             <CustomCard name='Vehicle Record' subName='Jai Krishna Bus Service' link='/home/vehicles'/>
-            <CustomCard name='Employee Record' subName='Jai Krishna Bus Service' link='/home/employees'/>
+            {/* <CustomCard name='Employee Record' subName='Jai Krishna Bus Service' link='/home/employees'/> */}
           </div>
       </div>
     </div>

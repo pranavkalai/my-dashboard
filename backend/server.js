@@ -42,7 +42,7 @@ app.get('/api/vehicles/:id', async (req, res) => {
 app.post('/api/vehicles', async (req, res) => {
     const { name, registration } = req.body;
     await pool.query(
-        'INSERT INTO vehicle_records (name, registration) VALUES ($1, $2)',
+        'INSERT INTO vehicle_records (name, registration) VALUES ($1, $2);',
         [name, registration]
     );
     res.status(200).send('Received vehicle data');
@@ -51,7 +51,7 @@ app.patch('/api/vehicles/:id', async (req, res) => {
     const vehicleId = req.params.id;
     const { attribute, updatedAttribute } = req.body;
     await pool.query(
-        `UPDATE vehicle_records SET ${attribute} = $1 WHERE id = $2`,
+        `UPDATE vehicle_records SET ${attribute} = $1 WHERE id = $2;`,
         [updatedAttribute, vehicleId]
     );
     console.log(`Updated vehicle ${vehicleId} attribute ${attribute} to ${updatedAttribute}`);
@@ -60,7 +60,7 @@ app.patch('/api/vehicles/:id', async (req, res) => {
 app.delete('/api/vehicles/:id', async (req, res) => {
     const vehicleId = req.params.id;
     await pool.query(
-        'DELETE FROM vehicle_records WHERE id = $1',
+        'DELETE FROM vehicle_records WHERE id = $1;',
         [vehicleId]
     );
     console.log(`Vehicle with ID ${vehicleId} deleted`);

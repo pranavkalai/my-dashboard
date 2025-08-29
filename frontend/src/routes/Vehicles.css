@@ -1,3 +1,4 @@
+/* for Vehicles.jsx */
 .vehicle-record {
     display: flex;
     flex-direction: row;;
@@ -7,21 +8,20 @@
     width: 50%;
 }
 .custom-form {
-    /* background-color: aquamarine; */
     padding:0;
     width:20%;
     margin: 50px 70px 0 130px;
 }
-.test {
+
+/* for Vehicle.jsx */
+.vehicle-block {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 50px 0 0 0;
-    /* background-color: aliceblue; */
 }
-
-.test1 {
+.block-item {
     display: flex;
     flex-direction: row;
     gap: 20px

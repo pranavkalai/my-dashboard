@@ -21,16 +21,16 @@ const Vehicle = () => {
   }
 
   return (
-    <div className = 'test' >
-      <div className = 'test1'>
+    <div className = 'vehicle-block' >
+      <div className = 'block-item'>
         <p>{vehicle.name}</p>
         <Link to={`/home/vehicles/${id}/update/name`}>Update</Link>
       </div>
-      <div className='test1'>
+      <div className='block-item'>
         <p>{vehicle.registration}</p>
         <Link to={`/home/vehicles/${id}/update/registration`}>Update</Link>
       </div>
-      <div className='test1'>
+      <div className='block-item'>
         <span style={{ color: 'red', cursor: 'pointer' }} onClick={handleDelete}>Delete</span>
       </div>
       <div className='back-link'>
