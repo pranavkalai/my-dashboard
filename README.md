@@ -40,6 +40,27 @@ cd backend
 npm install
 ```
 3. Set up your PostgreSQL database:
-  - Create a new database, e.g., my_dashboard_db
-  - Create a .env file in the backend folder (if not already present)
-  - Add your database credentials:
+- Create a new database, e.g., my_dashboard_db
+- Create a .env file in the backend folder (if not already present)
+- Add your database credentials:
+
+4. Start the bankend server:
+```bash
+node server.js
+```
+
+### 3. Frontend Setup
+
+1. Navigate to the frontend directory:
+```bash
+cd ../frontend
+```
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the React development server:
+```bash
+npm run dev
+```
