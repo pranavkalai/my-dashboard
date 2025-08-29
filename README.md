@@ -25,15 +25,21 @@ A full-stack web application for managing and visualizing data for a small busin
 Follow these steps to run the project locally.
 
 ### 1. Clone the Repository
-
 ```bash
 git clone https://github.com/pranavkalai/my-dashboard.git
 cd my-dashboard
 ```
 
 ### 2. Backend Setup
-1. Naviagte to the banckend directory
-
+1. Naviagte to the banckend directory:
 ```bash
 cd backend
 ```
+2. Install Dependencies:
+```bash
+npm install
+```
+3. Set up your PostgreSQL database:
+- Create a new database, e.g., my_dashboard_db
+- Create a .env file in the backend folder (if not already present)
+- Add your database credentials:
