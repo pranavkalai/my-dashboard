@@ -1,6 +1,6 @@
-# My Dashboard
+# Transport Business Dashboard
 
-A full-stack web application for managing and visualizing data for a small business. This project is built using **React**, **Node.js**, **Express**, and **PostgreSQL**, with plans for deployment on **AWS**. It is designed to be easy to set up locally and extendable for further features.
+A full-stack web application for managing data for a small business. This project is built using **React**, **Node.js**, **Express**, and **PostgreSQL**, with plans for deployment on **AWS**. It is designed to be easy to set up locally and extendable for further features.
 
 ---
 
