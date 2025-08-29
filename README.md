@@ -40,8 +40,8 @@ cd backend
 npm install
 ```
 3. Set up your PostgreSQL database:
-- Create a new database, e.g., my_dashboard_db
-- Create a .env file in the backend folder (if not already present)
+- Create a new database
+- Create a `.env` file in the `backend` folder (if not already present)
 - Add your database credentials:
 
 4. Start the bankend server:
