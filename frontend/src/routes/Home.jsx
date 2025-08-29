@@ -13,7 +13,7 @@ const Home = () => {
         setData(res.data);
       })
       .catch((err) => {
-        console.error('Error fetching data:', err);
+        console.error('Error Fetching Data:', err);
       })
   }, []);
 

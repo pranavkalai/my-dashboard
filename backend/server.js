@@ -20,53 +20,100 @@ const pool = new Pool({
 });
 
 app.get('/api', (req, res) => {
-    const date = new Date();
-    const dateInWords = date.toDateString();
-    const home_response = {
-        date: dateInWords
+    try {
+        const date = new Date();
+        const dateString = date.toDateString();
+        const homeResponse = { date: dateString }; // Left as JSON for future expansion
+        return res.status(200).json(homeResponse);
     }
-    res.json(home_response);
-})
+    catch (err) {
+        console.error('Error Fecthing Data:', err);
+        return res.status(500).send('Server Error');
+    }
+});
 app.get('/api/vehicles', async (req, res) => {
-    const vehicle_response = await pool.query('SELECT * FROM vehicle_records');
-    res.json(vehicle_response.rows);
-})
+    try {
+        const vehicleResponse = await pool.query('SELECT * FROM vehicle_records');
+        if (vehicleResponse.rows.length === 0) {
+            return res.status(200).send('Vehicle Records Empty'); // For Future Use
+        }
+        return res.status(200).json(vehicleResponse.rows);
+    } 
+    catch (err) {
+        console.error('Error Fetching Vehicles:', err);
+        return res.status(500).send('Server Error');
+    }
+});
 app.get('/api/vehicles/:id', async (req, res) => {
-    const vehicleId = req.params.id;
-    const vehicle_response = await pool.query(
-        'SELECT * FROM vehicle_records WHERE id = $1;',
-        [vehicleId]
-    );
-    res.json(vehicle_response.rows[0]);
-})
+    try {
+        const vehicleId = req.params.id;
+        const vehicleResponse = await pool.query(
+            'SELECT * FROM vehicle_records WHERE id = $1;',
+            [vehicleId]
+        );
+        if (vehicleResponse.rows.length === 0) {
+            return res.status(404).send('Vehicle Does Not Exist');
+        }
+        return res.status(200).json(vehicleResponse.rows[0]);
+    }
+    catch (err) {
+        console.error('Error Fetching Vehicle:', err);
+        return res.status(500).send('Server Error');
+    }
+});
 app.post('/api/vehicles', async (req, res) => {
-    const { name, registration } = req.body;
-    await pool.query(
-        'INSERT INTO vehicle_records (name, registration) VALUES ($1, $2);',
-        [name, registration]
-    );
-    res.status(200).send('Received vehicle data');
-})
+    try {
+        const { name, registration } = req.body;
+        if (!name || !registration) {
+            return res.status(400).send('Missing Vehicle Name or Registration');
+        }
+        await pool.query(
+            'INSERT INTO vehicle_records (name, registration) VALUES ($1, $2);',
+            [name, registration]
+        );
+        return res.status(200).send('Added Vehicle Information');
+    }
+    catch (err) {
+        console.error('Error Fetching Vehicle:', err);
+        return res.status(500).send('Server Error');
+    }
+});
 app.patch('/api/vehicles/:id', async (req, res) => {
-    const vehicleId = req.params.id;
-    const { attribute, updatedAttribute } = req.body;
-    await pool.query(
-        `UPDATE vehicle_records SET ${attribute} = $1 WHERE id = $2;`,
-        [updatedAttribute, vehicleId]
-    );
-    console.log(`Updated vehicle ${vehicleId} attribute ${attribute} to ${updatedAttribute}`);
-    res.status(200).send('Received vehicle data');
-})
+    try {
+        const vehicleId = req.params.id;
+        const { attribute, updatedAttribute } = req.body;
+        if (!attribute || !updatedAttribute) {
+            return res.status(400).send('Missing Attribute or Updated Attribute');
+        }
+        await pool.query(
+            `UPDATE vehicle_records SET ${attribute} = $1 WHERE id = $2;`,
+            [updatedAttribute, vehicleId]
+        );
+        return res.status(200).send('Updated Vehicle Information');
+    }
+    catch (err) {
+        console.error('Error Fetching Vehicle:', err);
+        return res.status(500).send('Server Error');
+    }
+});
 app.delete('/api/vehicles/:id', async (req, res) => {
-    const vehicleId = req.params.id;
-    await pool.query(
-        'DELETE FROM vehicle_records WHERE id = $1;',
-        [vehicleId]
-    );
-    console.log(`Vehicle with ID ${vehicleId} deleted`);
-    res.status(200).send('Vehicle deleted successfully');
-})
+    try {
+        const vehicleId = req.params.id;
+        if (!vehicleId) {
+            res.status(400).send('Missing Vehicle ID');
+        }
+        await pool.query(
+            'DELETE FROM vehicle_records WHERE id = $1;',
+            [vehicleId]
+        );
+        return res.status(200).send('Vehicle Deleted Successfully');
+    }
+    catch (err) {
+        console.error('Error Fetching Vehicle:', err);
+        return res.status(500).send('Server Error');
+    }
+});
 
 app.listen(8080, () => {
     console.log('Server is running on port 8080');
-})
+});

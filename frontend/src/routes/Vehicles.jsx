@@ -41,8 +41,8 @@ const Vehicles = () => {
                 <th>#</th>
                 <th>Name</th>
                 <th>Registration</th>
-                <th>Last Service Date</th>
-                <th>Next Service Date</th>
+                <th>Year</th>
+                <th>Engine Model</th>
                 <th></th>
               </tr>
             </thead>

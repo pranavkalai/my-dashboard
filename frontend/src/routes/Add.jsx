@@ -10,7 +10,7 @@ const Add = () => {
     const [registration, setRegistration] = useState('');
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await axios.post('http://localhost:8080/api/vehicles', { name, registration });
+        await axios.post('http://localhost:8080/api/vehicles', { name: name, registration: registration });
     }
 
     return (

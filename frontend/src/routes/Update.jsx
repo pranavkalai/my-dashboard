@@ -20,7 +20,7 @@ const Update = () => {
             <Form.Label>Vehicle {attribute}</Form.Label>
             <Form.Control placeholder={`Update vehicle ${attribute}`} onChange={ (e) => {setUpdatedAttribute(e.target.value)} }/>
             <Form.Text className="text-muted">
-              Placeholder text
+              {/* Placeholder text */}
             </Form.Text>
           </Form.Group>
           
