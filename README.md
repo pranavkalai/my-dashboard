@@ -20,14 +20,6 @@ A full-stack web application for managing and visualizing data for a small busin
 
 ---
 
-## Project Structure
-my-dashboard/
-├─ backend/ # Express server, API routes, and database configuration
-├─ frontend/ # React application (components, pages, routing, styles)
-└─ README.md # Project documentation
-
----
-
 ## Getting Started
 
 Follow these steps to run the project locally.
@@ -37,3 +29,11 @@ Follow these steps to run the project locally.
 ```bash
 git clone https://github.com/pranavkalai/my-dashboard.git
 cd my-dashboard
+```
+
+### 2. Backend Setup
+1. Naviagte to the banckend directory
+
+```bash
+cd backend
+```
