@@ -43,6 +43,13 @@ npm install
 - Create a new database
 - Create a `.env` file in the `backend` folder (if not already present)
 - Add your database credentials:
+```bash
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=your_postgres_username
+DB_PASSWORD=your_postgres_password
+DB_NAME=my_dashboard_db
+```
 
 4. Start the bankend server:
 ```bash
